@@ -1,102 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bio</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Home Page</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="style.css">
 </head>
-
-<style type="text/css">
-    
-    body{
-        background-color: rosybrown;
-    }
-
-    .header{
-        text-align: center;
-        font-size: 30px;
-        font-weight: bold;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    
-    .text{
-        text-align: center;
-        font-size: 15px;
-        font-family: Arial, Helvetica, sans-serif;        
-    }
-
-    img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 40%;
-        border:4px solid #021a40;
-        border-radius: 50px;
-    }
-</style>
-
 <body>
-    <div class="header">Laura Raynes</div>
-    <br>
-    <img src="https://media.npr.org/assets/img/2017/02/05/baby-fiona_wide-0495d60b84dcba6d79deffd4cb35a7eb3292b228-s800-c85.jpg" alt="Definitely Me">
+		
+		
+	<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="./index.html">Latitude</a>
+				</div>
+		
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-    <div class="text">
-    <p>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-        anim id est laborum."
-    </p>
-    <p>
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
-        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta 
-        sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
-        consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui 
-        dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora 
-        incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum 
-        exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem 
-        vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui 
-        dolorem eum fugiat quo voluptas nulla pariatur?"
-    </p>
-    </div>
-    
-    <ul>
-        <li><a href="https://www.facebook.com">Facebook</a></li>
-        <li><a href="https://www.twitter.com">Twitter</a></li>
-        <li><a href="https://www.instagram.com">Instagram</a></li>
-    </ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="./temp.html">Temperature</a></li>
+								<li><a href="./humid.html">Humidity</a></li>
+								<li><a href="./cloud.html">Cloudiness</a></li>
+								<li><a href="./wind.html">Wind</a></li>
+							</ul>
+						</li>
+						<li><a href="./comparisons.html">Comparison</a></li>
+						<li><a href="./data.html">Data</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
 
-    <br>
+		<div class="row">
+			<div class="col-md-7">
+				<h1>Summary: Latitude vs X</h1>
+				<hr>
+				<p>
+					<img src=".\Images\temperature.png" id="homegraph" style="float: left"/>
+					This project was focused on working with API calls. My goal was to get various information about a city’s 
+					weather (temperature, humidity, cloud coverage, and wind speed) and see how they relate to its latitude. 
+					Constraints included making sure each city was unique and that it existed in all APIs I planned to use.
+					<br><br>
+					To generate the data, I first created a random set of 500 unique latitudes and longitudes. I then used the 
+					python library citipy to get the coordinate’s closest corresponding city. It was at this point I realized 
+					there might be a problem: what happens if the random coordinate point was in the ocean, and therefore the 
+					nearest city was hundreds of miles away? To account for this, I fed the city name into Google’s API to retrieve 
+					its true coordinates. Once I had generated 500 unique cities and coordinates, I used the library openweathermappy 
+					to retrieve weather data from Openweathermap.org. Matplotlib was used to display the results.
+				</p>
+			</div>
 
-    <table border="1">
-        <tr>
-            <th colspan=4>My Favs</th>
-        </tr>
-        <tr>
-            <th>Movies</th>
-            <th>Books</th>
-            <th>Hobbies</th>
-        </tr>
-        <tr>
-            <td>Harry Potter</td>
-            <td>Mistborn</td>
-            <td>Lindy Hop</td>
-        </tr>
-        <tr>
-            <td>V for Vendetta</td>
-            <td>Farheneit 451</td>
-            <td>Crochet</td>
-        </tr>
-        <tr>
-            <td>Stranger than Fiction</td>
-            <td>Fledgeling</td>
-            <td>Data Science</td>
-        </tr>
-    </table>
-    
-    
+			<div class="col-md-1"></div>
+
+			<div class="col-md-4">
+				<h2>Visualizations</h2>
+				<hr>
+				<div class="row" id="innerrow">
+					<div class="col-md-6">
+						<a href="./temp.html">
+							<img src=".\Images\temperature.png" id="imgsidebar"/>
+						</a>
+					</div>
+					<div class="col-md-6">
+						<a href="./humid.html">
+							<img src=".\Images\humidity.png" id="imgsidebar"/>
+						</a>
+					</div>
+				</div>
+				<div class="row" id="innerrow">
+					<div class="col-md-6">
+						<a href="./cloud.html">
+							<img src=".\Images\clouds.png" id="imgsidebar"/>
+						</a>
+					</div>
+					<div class="col-md-6">
+						<a href="./wind.html">
+							<img src=".\Images\wind.png" id="imgsidebar"/>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
 </body>
 </html>
